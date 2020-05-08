@@ -1,13 +1,16 @@
 const fetch = require('node-fetch')
-const index = require('./config')
-require('dotenv').config()
+const index = require('./algolia')
+const { config } = require('./config')
 
 const fetchData = async () => {
-  const API_URL = process.env.API_URL
-  const API_KEY_CONTENT = process.env.API_KEY_CONTENT
+  const API_URL = config.apiUrl
+  const API_KEY_CONTENT = config.apieKeyContent
+  const FILTER =
+    '&include=authors,tags&fields=id,title,url,slug,published_at,custom_excerpt,meta_title,meta_description,feature_image,primary_author,excerpt'
+
   try {
     const req = await fetch(
-      `${API_URL}/posts/?key=${API_KEY_CONTENT}&limit=1&include=authors,tags&fields=id,title,url,slug,published_at,custom_excerpt,meta_title,meta_description,feature_image,primary_author,excerpt`
+      `${API_URL}/posts/?key=${API_KEY_CONTENT}&limit=1${FILTER}`
     )
     const { posts: post } = await req.json()
     // console.log(post)
@@ -37,4 +40,6 @@ const addRecords = async () => {
   }
 }
 
-addRecords()
+// addRecords()
+
+module.exports = addRecords
