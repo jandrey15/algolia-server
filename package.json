@@ -16,6 +16,8 @@
   "dependencies": {
     "algoliasearch": "^4.2.0",
     "dotenv": "^8.2.0",
+    "es6-promise": "^4.2.8",
+    "isomorphic-fetch": "^2.2.1",
     "netlify-lambda": "^1.6.3",
     "node-fetch": "^2.6.0"
   },

@@ -1,4 +1,6 @@
-const fetch = require('node-fetch')
+// const fetch = require('node-fetch')
+require('es6-promise').polyfill()
+require('isomorphic-fetch')
 const index = require('./algolia')
 const { config } = require('./config')
 
