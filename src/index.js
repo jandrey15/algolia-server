@@ -11,6 +11,7 @@ const fetchData = async () => {
     '&include=authors,tags&fields=id,title,url,slug,published_at,custom_excerpt,meta_title,meta_description,feature_image,primary_author,excerpt'
 
   try {
+    // eslint-disable-next-line no-undef
     const req = await fetch(
       `${API_URL}/posts/?key=${API_KEY_CONTENT}&limit=1${FILTER}`
     )
